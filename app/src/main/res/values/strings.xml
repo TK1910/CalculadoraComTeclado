@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">TecladoCalculator</string>
+    <string name= "Zero">0</string>
+    <string name= "Um">1</string>
+    <string name= "Dois">2</string>
+    <string name= "Três">3</string>
+    <string name= "Quatro">4</string>
+    <string name= "Cinco">5</string>
+    <string name= "Seis">6</string>
+    <string name= "Sete">7</string>
+    <string name= "Oito">8</string>
+    <string name= "Nove">9</string>
+    <string name= "Ce">CE</string>
+    <string name= "Ponto">.</string>
+    <string name= "Backspace">BackSpace</string>
+    <string name= "Mais">+</string>
+    <string name="Menos">-</string>
+    <string name="Multiplica">*</string>
+    <string name="Divide">/</string>
+    <string name="Igual">=</string>
+</resources>
