@@ -36,8 +36,6 @@ class MainActivity : AppCompatActivity() {
     var botao_7: Button? = null
     var botao_8: Button? = null
     var botao_9: Button? = null
-    //SWITCH BUTTON
-    var switch: Switch? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -69,43 +67,83 @@ class MainActivity : AppCompatActivity() {
         //TECLAS 0-9 LISTENERS
         botao_0?.setOnClickListener() {
             val valorBotao = 0.toString()
+            if (exibeNum?.text.toString() == "") {
                 exibeNum?.setText(valorBotao).toString()
+            }else{
+                exibeNum2?.setText(valorBotao).toString()
+            }
         }
         botao_1?.setOnClickListener() {
             val valorBotao = 1.toString()
+            if (exibeNum?.text.toString() == "") {
                 exibeNum?.setText(valorBotao).toString()
+            }else{
+                exibeNum2?.setText(valorBotao).toString()
+            }
         }
         botao_2?.setOnClickListener() {
             val valorBotao = 2.toString()
+            if (exibeNum?.text.toString() == "") {
                 exibeNum?.setText(valorBotao).toString()
+            }else{
+                exibeNum2?.setText(valorBotao).toString()
+            }
         }
         botao_3?.setOnClickListener() {
             val valorBotao = 3.toString()
+            if (exibeNum?.text.toString() == "") {
                 exibeNum?.setText(valorBotao).toString()
+            }else{
+                exibeNum2?.setText(valorBotao).toString()
+            }
         }
         botao_4?.setOnClickListener() {
             val valorBotao = 4.toString()
+            if (exibeNum?.text.toString() == "") {
                 exibeNum?.setText(valorBotao).toString()
+            }else{
+                exibeNum2?.setText(valorBotao).toString()
+            }
         }
         botao_5?.setOnClickListener() {
             val valorBotao = 5.toString()
+            if (exibeNum?.text.toString() == "") {
                 exibeNum?.setText(valorBotao).toString()
+            }else{
+                exibeNum2?.setText(valorBotao).toString()
+            }
         }
         botao_6?.setOnClickListener() {
             val valorBotao = 6.toString()
+            if (exibeNum?.text.toString() == "") {
                 exibeNum?.setText(valorBotao).toString()
+            }else{
+                exibeNum2?.setText(valorBotao).toString()
+            }
         }
         botao_7?.setOnClickListener() {
             val valorBotao = 7.toString()
+            if (exibeNum?.text.toString() == "") {
                 exibeNum?.setText(valorBotao).toString()
+            }else{
+                exibeNum2?.setText(valorBotao).toString()
+            }
         }
         botao_8?.setOnClickListener() {
             val valorBotao = 8.toString()
+            if (exibeNum?.text.toString() == "") {
                 exibeNum?.setText(valorBotao).toString()
+            }else{
+                exibeNum2?.setText(valorBotao).toString()
+            }
         }
         botao_9?.setOnClickListener() {
             val valorBotao = 9.toString()
+            if (exibeNum?.text.toString() == "") {
                 exibeNum?.setText(valorBotao).toString()
+            }else{
+                exibeNum2?.setText(valorBotao).toString()
+            }
         }
 
         //TECLA SOMA
@@ -153,10 +191,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        //CLIQUE TECLADO
-
-        //BOTAO VAZIO CHECK
-
         //BOTAO CE
         limpaBotao?.setOnClickListener() {
             exibeNum?.setText("").toString()
@@ -164,8 +198,6 @@ class MainActivity : AppCompatActivity() {
             exibeResultado?.setText("").toString()
             exibeOperador?.setText("").toString()
         }
-
-
     }
 
     fun checkVazio(): Boolean {
@@ -182,12 +214,3 @@ class MainActivity : AppCompatActivity() {
 
         }
     }
-
-    //OPERACAO SOMA
-
-    //OPERACAO SUBTRACAO
-
-    //OPERACAO DIVISAO
-
-    //OPERACAO MULTIPLICACAO
-

@@ -166,15 +166,13 @@
         android:id="@+id/buttonClear"
         android:layout_width="105dp"
         android:layout_height="70dp"
-        android:layout_marginTop="136dp"
+        android:layout_marginBottom="60dp"
         android:backgroundTint="#FF0000"
         android:hint="@string/Ce"
         android:textColorHint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
         android:id="@+id/linearLayout5"
@@ -247,7 +245,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:inputType="number"
-            />
+            android:backgroundTint="@color/white"/>
 
         <EditText
             android:id="@+id/mostraNum2"
@@ -255,7 +253,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:inputType="number"
-            />
+            android:backgroundTint="@color/white"/>
     </LinearLayout>
 
     <LinearLayout
@@ -281,6 +279,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="3"
-            android:textSize="30dp"/>
+            android:textSize="30dp" />
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
