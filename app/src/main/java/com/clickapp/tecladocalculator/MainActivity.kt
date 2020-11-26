@@ -154,18 +154,21 @@ class MainActivity : AppCompatActivity() {
                     val input1 = exibeNum?.text.toString().trim().toBigDecimal()
                     val input2 = exibeNum2?.text.toString().trim().toBigDecimal()
                     exibeResultado?.text = input1.add(input2).toString()
+                    exibeOperador?.text  = ""
                 }
             }else if(exibeOperador?.text.toString() == "-"){
                 if (checkVazio()) {
                     val input1 = exibeNum?.text.toString().trim().toBigDecimal()
                     val input2 = exibeNum2?.text.toString().trim().toBigDecimal()
                     exibeResultado?.text = input1.subtract(input2).toString()
+                    exibeOperador?.text  = ""
                 }
             }else if(exibeOperador?.text.toString() == "*"){
                 if (checkVazio()) {
                     val input1 = exibeNum?.text.toString().trim().toBigDecimal()
                     val input2 = exibeNum2?.text.toString().trim().toBigDecimal()
                     exibeResultado?.text = input1.multiply(input2).toString()
+                    exibeOperador?.text  = ""
                 }
             }else if(exibeOperador?.text.toString() == "/"){
                 if (checkVazio()) {
@@ -175,6 +178,7 @@ class MainActivity : AppCompatActivity() {
                         exibeNum2?.error = "Invalid input"
                     } else {
                         exibeResultado?.text = input1.divide(input2, 2, RoundingMode.HALF_UP).toString()
+                        exibeOperador?.text  = ""
                     }
                 }
             }
