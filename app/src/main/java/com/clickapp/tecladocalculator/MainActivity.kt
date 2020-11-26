@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
     var exibeOperador: TextView? = null
     var exibeResultado: TextView? = null
     //BUTTON OPERACOES
+    var igualBotao: Button? = null
     var limpaBotao: Button? = null
     var somarBtn: Button? = null
     var subBtn: Button? = null
@@ -47,6 +48,7 @@ class MainActivity : AppCompatActivity() {
         exibeOperador = findViewById(R.id.mostraOperador) as TextView
         exibeResultado = findViewById(R.id.mostraResult) as TextView
         //TECLAS OPERACOES
+        igualBotao = findViewById(R.id.botaoIgual) as Button
         limpaBotao = findViewById(R.id.buttonClear) as Button
         somarBtn = findViewById(R.id.botaoSoma) as Button
         subBtn = findViewById(R.id.botaoSubtra) as Button
@@ -146,57 +148,72 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        igualBotao?.setOnClickListener(){
+            if(exibeOperador?.text.toString() == "+"){
+                if (checkVazio()) {
+                    val input1 = exibeNum?.text.toString().trim().toBigDecimal()
+                    val input2 = exibeNum2?.text.toString().trim().toBigDecimal()
+                    exibeResultado?.text = input1.add(input2).toString()
+                }
+            }else if(exibeOperador?.text.toString() == "-"){
+                if (checkVazio()) {
+                    val input1 = exibeNum?.text.toString().trim().toBigDecimal()
+                    val input2 = exibeNum2?.text.toString().trim().toBigDecimal()
+                    exibeResultado?.text = input1.subtract(input2).toString()
+                }
+            }else if(exibeOperador?.text.toString() == "*"){
+                if (checkVazio()) {
+                    val input1 = exibeNum?.text.toString().trim().toBigDecimal()
+                    val input2 = exibeNum2?.text.toString().trim().toBigDecimal()
+                    exibeResultado?.text = input1.multiply(input2).toString()
+                }
+            }else if(exibeOperador?.text.toString() == "/"){
+                if (checkVazio()) {
+                    val input1 = exibeNum?.text.toString().trim().toBigDecimal()
+                    val input2 = exibeNum2?.text.toString().trim().toBigDecimal()
+                    if (input2.compareTo(BigDecimal.ZERO) == 0) {
+                        exibeNum2?.error = "Invalid input"
+                    } else {
+                        exibeResultado?.text = input1.divide(input2, 2, RoundingMode.HALF_UP).toString()
+                    }
+                }
+            }
+        }
         //TECLA SOMA
         somarBtn?.setOnClickListener() {
             val valorBotao = "+"
             exibeOperador?.setText(valorBotao).toString()
-            if (checkVazio()) {
-                val input1 = exibeNum?.text.toString().trim().toBigDecimal()
-                val input2 = exibeNum2?.text.toString().trim().toBigDecimal()
-                exibeResultado?.text = input1.add(input2).toString()
-            }
         }
         //TECLA SUBTRACAO
         subBtn?.setOnClickListener() {
             val valorBotao = "-"
             exibeOperador?.setText(valorBotao).toString()
-            if (checkVazio()) {
-                val input1 = exibeNum?.text.toString().trim().toBigDecimal()
-                val input2 = exibeNum2?.text.toString().trim().toBigDecimal()
-                exibeResultado?.text = input1.subtract(input2).toString()
-            }
         }
         //TECLA MULTIPLICACAO
         multBtn?.setOnClickListener() {
             val valorBotao = "*"
             exibeOperador?.setText(valorBotao).toString()
-            if (checkVazio()) {
-                val input1 = exibeNum?.text.toString().trim().toBigDecimal()
-                val input2 = exibeNum2?.text.toString().trim().toBigDecimal()
-                exibeResultado?.text = input1.multiply(input2).toString()
-            }
         }
         //TECLA DIVISAO
         divBtn?.setOnClickListener() {
             val valorBotao = "/"
             exibeOperador?.setText(valorBotao).toString()
-            if (checkVazio()) {
-                val input1 = exibeNum?.text.toString().trim().toBigDecimal()
-                val input2 = exibeNum2?.text.toString().trim().toBigDecimal()
-                if (input2.compareTo(BigDecimal.ZERO) == 0) {
-                    exibeNum2?.error = "Invalid input"
-                } else {
-                    exibeResultado?.text = input1.divide(input2, 2, RoundingMode.HALF_UP).toString()
-                }
-            }
         }
 
         //BOTAO CE
         limpaBotao?.setOnClickListener() {
+            cleanCheckVazio()
             exibeNum?.setText("").toString()
             exibeNum2?.setText("").toString()
             exibeResultado?.setText("").toString()
             exibeOperador?.setText("").toString()
+        }
+    }
+
+    fun cleanCheckVazio() {
+        if (exibeNum.toString() != "" && exibeNum2.toString() != ""){
+            exibeNum?.error = null
+            exibeNum2?.error = null
         }
     }
 
@@ -211,6 +228,5 @@ class MainActivity : AppCompatActivity() {
                 b = false
             }
             return b
-
         }
     }
