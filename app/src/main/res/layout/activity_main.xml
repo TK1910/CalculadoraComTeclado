@@ -6,12 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="360dp"
         android:layout_height="55dp"
-        android:layout_marginTop="164dp"
+        android:layout_marginTop="160dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.49"
