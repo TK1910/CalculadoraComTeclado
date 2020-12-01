@@ -69,82 +69,82 @@ class MainActivity : AppCompatActivity() {
         //TECLAS 0-9 LISTENERS
         botao_0?.setOnClickListener() {
             val valorBotao = 0.toString()
-            if (exibeNum?.text.toString() == "") {
-                exibeNum?.setText(valorBotao).toString()
+            if (exibeNum?.text.toString() == "" && exibeOperador?.text.toString() == "" || exibeNum?.text.toString().length<10 && exibeOperador?.text.toString() == "") {
+                exibeNum?.append(valorBotao).toString()
             }else{
-                exibeNum2?.setText(valorBotao).toString()
+                exibeNum2?.append(valorBotao).toString()
+                }
             }
-        }
         botao_1?.setOnClickListener() {
             val valorBotao = 1.toString()
-            if (exibeNum?.text.toString() == "") {
-                exibeNum?.setText(valorBotao).toString()
+            if (exibeNum?.text.toString() == "" && exibeOperador?.text.toString() == "" || exibeNum?.text.toString().length<10 && exibeOperador?.text.toString() == "") {
+                exibeNum?.append(valorBotao).toString()
             }else{
-                exibeNum2?.setText(valorBotao).toString()
+                exibeNum2?.append(valorBotao).toString()
             }
         }
         botao_2?.setOnClickListener() {
             val valorBotao = 2.toString()
-            if (exibeNum?.text.toString() == "") {
-                exibeNum?.setText(valorBotao).toString()
+            if (exibeNum?.text.toString() == "" && exibeOperador?.text.toString() == "" || exibeNum?.text.toString().length<10 && exibeOperador?.text.toString() == "") {
+                exibeNum?.append(valorBotao).toString()
             }else{
-                exibeNum2?.setText(valorBotao).toString()
+                exibeNum2?.append(valorBotao).toString()
             }
         }
         botao_3?.setOnClickListener() {
-            val valorBotao = 3.toString()
-            if (exibeNum?.text.toString() == "") {
-                exibeNum?.setText(valorBotao).toString()
+            var valorBotao = 3.toString()
+            if (exibeNum?.text.toString() == "" && exibeOperador?.text.toString() == "" || exibeNum?.text.toString().length<10 && exibeOperador?.text.toString() == ""){
+                exibeNum?.append(valorBotao).toString()
             }else{
-                exibeNum2?.setText(valorBotao).toString()
+                exibeNum2?.append(valorBotao).toString()
             }
         }
         botao_4?.setOnClickListener() {
             val valorBotao = 4.toString()
-            if (exibeNum?.text.toString() == "") {
-                exibeNum?.setText(valorBotao).toString()
+            if (exibeNum?.text.toString() == "" && exibeOperador?.text.toString() == "" || exibeNum?.text.toString().length<10 && exibeOperador?.text.toString() == "") {
+                exibeNum?.append(valorBotao).toString()
             }else{
-                exibeNum2?.setText(valorBotao).toString()
+                exibeNum2?.append(valorBotao).toString()
             }
         }
         botao_5?.setOnClickListener() {
             val valorBotao = 5.toString()
-            if (exibeNum?.text.toString() == "") {
-                exibeNum?.setText(valorBotao).toString()
+            if (exibeNum?.text.toString() == "" && exibeOperador?.text.toString() == "" || exibeNum?.text.toString().length<10 && exibeOperador?.text.toString() == "") {
+                exibeNum?.append(valorBotao).toString()
             }else{
-                exibeNum2?.setText(valorBotao).toString()
+                exibeNum2?.append(valorBotao).toString()
             }
         }
         botao_6?.setOnClickListener() {
             val valorBotao = 6.toString()
-            if (exibeNum?.text.toString() == "") {
-                exibeNum?.setText(valorBotao).toString()
+            if (exibeNum?.text.toString() == "" && exibeOperador?.text.toString() == "" || exibeNum?.text.toString().length<10 && exibeOperador?.text.toString() == "") {
+                exibeNum?.append(valorBotao).toString()
             }else{
-                exibeNum2?.setText(valorBotao).toString()
+                exibeNum2?.append(valorBotao).toString()
             }
         }
         botao_7?.setOnClickListener() {
             val valorBotao = 7.toString()
-            if (exibeNum?.text.toString() == "") {
-                exibeNum?.setText(valorBotao).toString()
+            if (exibeNum?.text.toString() == "" && exibeOperador?.text.toString() == "" || exibeNum?.text.toString().length<10 && exibeOperador?.text.toString() == "") {
+                exibeNum?.append(valorBotao).toString()
             }else{
-                exibeNum2?.setText(valorBotao).toString()
+                exibeNum2?.append(valorBotao).toString()
             }
         }
         botao_8?.setOnClickListener() {
             val valorBotao = 8.toString()
-            if (exibeNum?.text.toString() == "") {
-                exibeNum?.setText(valorBotao).toString()
+            if (exibeNum?.text.toString() == "" && exibeOperador?.text.toString() == "" || exibeNum?.text.toString().length<10 && exibeOperador?.text.toString() == "") {
+                exibeNum?.append(valorBotao).toString()
             }else{
-                exibeNum2?.setText(valorBotao).toString()
+                exibeNum2?.append(valorBotao).toString()
             }
         }
         botao_9?.setOnClickListener() {
             val valorBotao = 9.toString()
-            if (exibeNum?.text.toString() == "") {
-                exibeNum?.setText(valorBotao).toString()
+            if (exibeNum?.text.toString() == "" && exibeOperador?.text.toString() == "" || exibeNum?.text.toString().length<10 && exibeOperador?.text.toString() == "") {
+                exibeNum?.append(valorBotao).toString()
             }else{
-                exibeNum2?.setText(valorBotao).toString()
+                exibeNum2?.append(valorBotao).toString()
             }
         }
 
@@ -224,11 +224,11 @@ class MainActivity : AppCompatActivity() {
     fun checkVazio(): Boolean {
             var b = true
             if (exibeNum?.text.toString().trim().isEmpty()) {
-                exibeNum?.error = "Required"
+                exibeNum?.error = "Campo necessário"
                 b = false
             }
             if (exibeNum2?.text.toString().trim().isEmpty()) {
-                exibeNum2?.error = "Required"
+                exibeNum2?.error = "Campo necessário"
                 b = false
             }
             return b
