@@ -2,15 +2,18 @@ package com.clickapp.tecladocalculator
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.TextWatcher
 import android.renderscript.ScriptGroup
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Switch
 import android.widget.TextView
+import androidx.core.text.trimmedLength
 import com.clickapp.tecladocalculator.R.id.*
 import java.math.BigDecimal
 import java.math.RoundingMode
+import java.nio.file.WatchEvent
 
 class MainActivity : AppCompatActivity() {
     //EDITEXT
@@ -27,6 +30,7 @@ class MainActivity : AppCompatActivity() {
     var multBtn: Button? = null
     var divBtn: Button? = null
     //BUTTON TECLADO
+    var botao_dot: Button? = null
     var botao_0: Button? = null
     var botao_1: Button? = null
     var botao_2: Button? = null
@@ -45,28 +49,37 @@ class MainActivity : AppCompatActivity() {
         //EXIBE NUMEROS
         exibeNum = findViewById(mostraNum) as EditText
         exibeNum2 = findViewById(mostraNum2) as EditText
-        exibeOperador = findViewById(R.id.mostraOperador) as TextView
-        exibeResultado = findViewById(R.id.mostraResult) as TextView
+        exibeOperador = findViewById(mostraOperador) as TextView
+        exibeResultado = findViewById(mostraResult) as TextView
         //TECLAS OPERACOES
-        igualBotao = findViewById(R.id.botaoIgual) as Button
-        limpaBotao = findViewById(R.id.buttonClear) as Button
-        somarBtn = findViewById(R.id.botaoSoma) as Button
-        subBtn = findViewById(R.id.botaoSubtra) as Button
-        multBtn = findViewById(R.id.botaoMultipli) as Button
-        divBtn = findViewById(R.id.botaoDivisao) as Button
-        //VALOR TECLAS 0-9
-        botao_0 = findViewById(R.id.botao0)
-        botao_1 = findViewById(R.id.botao1)
-        botao_2 = findViewById(R.id.botao2)
-        botao_3 = findViewById(R.id.botao3)
-        botao_4 = findViewById(R.id.botao4)
-        botao_5 = findViewById(R.id.botao5)
-        botao_6 = findViewById(R.id.botao6)
-        botao_7 = findViewById(R.id.botao7)
-        botao_8 = findViewById(R.id.botao8)
-        botao_9 = findViewById(R.id.botao9)
+        igualBotao = findViewById(botaoIgual) as Button
+        limpaBotao = findViewById(buttonClear) as Button
+        somarBtn = findViewById(botaoSoma) as Button
+        subBtn = findViewById(botaoSubtra) as Button
+        multBtn = findViewById(botaoMultipli) as Button
+        divBtn = findViewById(botaoDivisao) as Button
+        //VALOR TECLAS 0-9 - dot
+        botao_dot = findViewById(botaoPonto)
+        botao_0 = findViewById(botao0)
+        botao_1 = findViewById(botao1)
+        botao_2 = findViewById(botao2)
+        botao_3 = findViewById(botao3)
+        botao_4 = findViewById(botao4)
+        botao_5 = findViewById(botao5)
+        botao_6 = findViewById(botao6)
+        botao_7 = findViewById(botao7)
+        botao_8 = findViewById(botao8)
+        botao_9 = findViewById(botao9)
+        //TECLAS 0-9 LISTENERS - DOT
 
-        //TECLAS 0-9 LISTENERS
+        botao_dot?.setOnClickListener(){
+        val valorBotao = "."
+            if (exibeNum?.text.toString() == "" && exibeOperador?.text.toString() == "" || exibeNum?.text.toString().length<10 && exibeOperador?.text.toString() == "") {
+                exibeNum?.append(valorBotao).toString()
+            }else{
+                exibeNum2?.append(valorBotao).toString()
+            }
+        }
         botao_0?.setOnClickListener() {
             val valorBotao = 0.toString()
             if (exibeNum?.text.toString() == "" && exibeOperador?.text.toString() == "" || exibeNum?.text.toString().length<10 && exibeOperador?.text.toString() == "") {
@@ -147,7 +160,6 @@ class MainActivity : AppCompatActivity() {
                 exibeNum2?.append(valorBotao).toString()
             }
         }
-
         igualBotao?.setOnClickListener(){
             if(exibeOperador?.text.toString() == "+"){
                 if (checkVazio()) {
@@ -203,7 +215,6 @@ class MainActivity : AppCompatActivity() {
             val valorBotao = "/"
             exibeOperador?.setText(valorBotao).toString()
         }
-
         //BOTAO CE
         limpaBotao?.setOnClickListener() {
             cleanCheckVazio()
@@ -220,7 +231,6 @@ class MainActivity : AppCompatActivity() {
             exibeNum2?.error = null
         }
     }
-
     fun checkVazio(): Boolean {
             var b = true
             if (exibeNum?.text.toString().trim().isEmpty()) {
