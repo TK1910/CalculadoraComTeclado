@@ -74,9 +74,9 @@ class MainActivity : AppCompatActivity() {
 
         botao_dot?.setOnClickListener(){
         val valorBotao = "."
-            if (exibeNum?.text.toString() == "" && exibeOperador?.text.toString() == "" || exibeNum?.text.toString().length<10 && exibeOperador?.text.toString() == "") {
+            if (exibeNum?.text.toString().length >=0 && exibeOperador?.text.toString() == "") {
                 exibeNum?.append(valorBotao).toString()
-            }else{
+            }else if (exibeOperador?.text.toString() != ""){
                 exibeNum2?.append(valorBotao).toString()
             }
         }
@@ -224,7 +224,6 @@ class MainActivity : AppCompatActivity() {
             exibeOperador?.setText("").toString()
         }
     }
-
     fun cleanCheckVazio() {
         if (exibeNum.toString() != "" && exibeNum2.toString() != ""){
             exibeNum?.error = null
