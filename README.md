@@ -1,4 +1,4 @@
-"# CalculadoraComTeclado" 
-"# CalculadoraTecladoProjeto" 
-"# CalculadoraTecladoProjeto" 
-"# CalculadoraTecladoProjeto" 
+"# CalculadoraComTecladoProjeto" 
+"# CalculatorWithKeyboardProject" 
+"# CalculadoraSemExp4j
+"# CalculatorWithoutExp4j" 
