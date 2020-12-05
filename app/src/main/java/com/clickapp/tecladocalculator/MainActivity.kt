@@ -161,34 +161,29 @@ class MainActivity : AppCompatActivity() {
             }
         }
         igualBotao?.setOnClickListener(){
-            if(exibeOperador?.text.toString() == "+"){
-                if (checkVazio()) {
+            if (checkVazio() && exibeOperador?.text.toString() == "+" ){
                     val input1 = exibeNum?.text.toString().trim().toBigDecimal()
                     val input2 = exibeNum2?.text.toString().trim().toBigDecimal()
                     exibeResultado?.text = input1.add(input2).toString()
                 }
-            }else if(exibeOperador?.text.toString() == "-"){
-                if (checkVazio()) {
+            if(checkVazio() && exibeOperador?.text.toString() == "-"){
                     val input1 = exibeNum?.text.toString().trim().toBigDecimal()
                     val input2 = exibeNum2?.text.toString().trim().toBigDecimal()
                     exibeResultado?.text = input1.subtract(input2).toString()
                 }
-            }else if(exibeOperador?.text.toString() == "*"){
-                if (checkVazio()) {
+            if(checkVazio() && exibeOperador?.text.toString() == "*"){
                     val input1 = exibeNum?.text.toString().trim().toBigDecimal()
                     val input2 = exibeNum2?.text.toString().trim().toBigDecimal()
                     exibeResultado?.text = input1.multiply(input2).toString()
                 }
-            }else if(exibeOperador?.text.toString() == "/"){
-                if (checkVazio()) {
+            if(checkVazio() && exibeOperador?.text.toString() == "/"){
                     val input1 = exibeNum?.text.toString().trim().toBigDecimal()
                     val input2 = exibeNum2?.text.toString().trim().toBigDecimal()
                     if (input2.compareTo(BigDecimal.ZERO) == 0) {
                         exibeNum2?.error = "Invalid input"
                     } else {
                         exibeResultado?.text = input1.divide(input2, 2, RoundingMode.HALF_UP).toString()
-                    }
-                }
+                  }
             }
         }
         //TECLA SOMA
@@ -225,9 +220,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
     fun cleanCheckVazio() {
-        if (exibeNum.toString() != "" && exibeNum2.toString() != ""){
+        if (exibeNum.toString() != "" && exibeNum2.toString() != "" && exibeOperador.toString() != ""){
             exibeNum?.error = null
             exibeNum2?.error = null
+            exibeOperador?.error = null
+            exibeResultado?.error = null
         }
     }
     fun checkVazio(): Boolean {
@@ -238,6 +235,10 @@ class MainActivity : AppCompatActivity() {
             }
             if (exibeNum2?.text.toString().trim().isEmpty()) {
                 exibeNum2?.error = "Campo necessário"
+                b = false
+            }
+            if (exibeOperador?.text.toString().trim().isEmpty()) {
+                exibeOperador?.error = "Campo necessário"
                 b = false
             }
             return b
