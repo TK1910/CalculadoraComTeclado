@@ -5,10 +5,7 @@ import android.os.Bundle
 import android.text.TextWatcher
 import android.renderscript.ScriptGroup
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Switch
-import android.widget.TextView
+import android.widget.*
 import androidx.core.text.trimmedLength
 import com.clickapp.tecladocalculator.R.id.*
 import java.math.BigDecimal
@@ -219,28 +216,33 @@ class MainActivity : AppCompatActivity() {
             exibeOperador?.setText("").toString()
         }
     }
+    //RETIRA SINAL DE ERROR
     fun cleanCheckVazio() {
-        if (exibeNum.toString() != "" && exibeNum2.toString() != "" && exibeOperador.toString() != ""){
+        if (exibeNum.toString() != "".orEmpty()){
             exibeNum?.error = null
+        }
+        if(exibeNum2.toString() != "".orEmpty()){
             exibeNum2?.error = null
+        }
+        if (exibeOperador.toString() != "".orEmpty()){
             exibeOperador?.error = null
-            exibeResultado?.error = null
         }
     }
+    // INSERE SINAL DE ERROR
     fun checkVazio(): Boolean {
-            var b = true
-            if (exibeNum?.text.toString().trim().isEmpty()) {
-                exibeNum?.error = "Campo necessário"
-                b = false
-            }
-            if (exibeNum2?.text.toString().trim().isEmpty()) {
-                exibeNum2?.error = "Campo necessário"
-                b = false
-            }
-            if (exibeOperador?.text.toString().trim().isEmpty()) {
-                exibeOperador?.error = "Campo necessário"
-                b = false
-            }
-            return b
+        var b = true
+        if (exibeNum?.text.toString().trim().isEmpty()) {
+            exibeNum?.error = ""
+            b = false
         }
+        if (exibeNum2?.text.toString().trim().isEmpty()) {
+            exibeNum2?.error = ""
+            b = false
+        }
+        if (exibeOperador?.text.toString().trim().isEmpty()) {
+            exibeOperador?.error = ""
+            b = false
+        }
+        return b
     }
+}

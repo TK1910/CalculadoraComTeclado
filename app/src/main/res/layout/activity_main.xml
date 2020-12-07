@@ -6,14 +6,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:layout_margin="4pt"
-    android:layout_marginBottom="30pt">
+    android:layout_marginLeft="5pt"
+    android:layout_marginRight="5pt"
+    android:layout_marginBottom="35pt">
+
+    <ImageView
+        android:src="@drawable/numbersimage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:layout_marginTop="300dp"/>
+
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="360dp"
         android:layout_height="55dp"
         android:layout_marginTop="160dp"
         android:orientation="horizontal"
+        android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
@@ -60,6 +70,7 @@
         android:layout_width="360dp"
         android:layout_height="55dp"
         android:orientation="horizontal"
+        android:gravity="center"
         app:layout_constraintEnd_toEndOf="@+id/linearLayout"
         app:layout_constraintStart_toStartOf="@+id/linearLayout"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
@@ -105,6 +116,7 @@
         android:layout_width="360dp"
         android:layout_height="55dp"
         android:orientation="horizontal"
+        android:gravity="center"
         app:layout_constraintEnd_toEndOf="@+id/linearLayout2"
         app:layout_constraintStart_toStartOf="@+id/linearLayout2"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
@@ -150,6 +162,7 @@
         android:layout_width="360dp"
         android:layout_height="55dp"
         android:orientation="horizontal"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/linearLayout3"
         app:layout_constraintHorizontal_bias="1.0"
@@ -200,6 +213,7 @@
         android:layout_width="360dp"
         android:layout_height="55dp"
         android:orientation="horizontal"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/linearLayout4"
         app:layout_constraintStart_toStartOf="@+id/linearLayout4"
@@ -219,6 +233,7 @@
         android:layout_width="340dp"
         android:layout_height="50dp"
         android:orientation="horizontal"
+        android:gravity="center"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
@@ -236,6 +251,12 @@
             android:cursorVisible="false"
             android:backgroundTint="@color/white"
             />
+        <TextView
+            android:id="@+id/mostraOperador"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textSize="30dp"/>
         <EditText
             android:id="@+id/mostraNum2"
             android:layout_width="wrap_content"
@@ -250,6 +271,7 @@
         android:layout_width="340dp"
         android:layout_height="50dp"
         android:orientation="horizontal"
+        android:gravity="center"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.485"
@@ -257,16 +279,11 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout6"
         app:layout_constraintVertical_bias="0.0">
         <TextView
-            android:id="@+id/mostraOperador"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:textSize="30dp"/>
-        <TextView
             android:id="@+id/mostraResult"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="3"
+            android:layout_gravity="center"
             android:textSize="30dp" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
