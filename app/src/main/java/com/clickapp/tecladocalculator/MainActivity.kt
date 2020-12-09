@@ -14,36 +14,34 @@ import java.nio.file.WatchEvent
 
 class MainActivity : AppCompatActivity() {
     //EDITEXT
-    var exibeNum: EditText? = null
-    var exibeNum2: EditText? = null
+    private var exibeNum: EditText? = null
+    private var exibeNum2: EditText? = null
     //TEXTVIEW
-    var exibeOperador: TextView? = null
-    var exibeResultado: TextView? = null
+    private var exibeOperador: TextView? = null
+    private var exibeResultado: TextView? = null
     //BUTTON OPERACOES
-    var igualBotao: Button? = null
-    var limpaBotao: Button? = null
-    var somarBtn: Button? = null
-    var subBtn: Button? = null
-    var multBtn: Button? = null
-    var divBtn: Button? = null
+    private var igualBotao: Button? = null
+    private var limpaBotao: Button? = null
+    private var somarBtn: Button? = null
+    private var subBtn: Button? = null
+    private var multBtn: Button? = null
+    private var divBtn: Button? = null
     //BUTTON TECLADO
-    var botao_dot: Button? = null
-    var botao_0: Button? = null
-    var botao_1: Button? = null
-    var botao_2: Button? = null
-    var botao_3: Button? = null
-    var botao_4: Button? = null
-    var botao_5: Button? = null
-    var botao_6: Button? = null
-    var botao_7: Button? = null
-    var botao_8: Button? = null
-    var botao_9: Button? = null
-
+    private var botao_dot: Button? = null
+    private var botao_0: Button? = null
+    private var botao_1: Button? = null
+    private var botao_2: Button? = null
+    private var botao_3: Button? = null
+    private var botao_4: Button? = null
+    private var botao_5: Button? = null
+    private var botao_6: Button? = null
+    private var botao_7: Button? = null
+    private var botao_8: Button? = null
+    private var botao_9: Button? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        //EXIBE NUMEROS
+        //CAIXAS DE EXIBICAO
         exibeNum = findViewById(mostraNum) as EditText
         exibeNum2 = findViewById(mostraNum2) as EditText
         exibeOperador = findViewById(mostraOperador) as TextView
@@ -55,7 +53,7 @@ class MainActivity : AppCompatActivity() {
         subBtn = findViewById(botaoSubtra) as Button
         multBtn = findViewById(botaoMultipli) as Button
         divBtn = findViewById(botaoDivisao) as Button
-        //VALOR TECLAS 0-9 - dot
+        //VALOR TECLAS 0-9 - DOT
         botao_dot = findViewById(botaoPonto)
         botao_0 = findViewById(botao0)
         botao_1 = findViewById(botao1)
@@ -68,7 +66,6 @@ class MainActivity : AppCompatActivity() {
         botao_8 = findViewById(botao8)
         botao_9 = findViewById(botao9)
         //TECLAS 0-9 LISTENERS - DOT
-
         botao_dot?.setOnClickListener(){
         val valorBotao = "."
             if (exibeNum?.text.toString().length >=0 && exibeOperador?.text.toString() == "") {
@@ -102,7 +99,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
         botao_3?.setOnClickListener() {
-            var valorBotao = 3.toString()
+            val valorBotao = 3.toString()
             if (exibeNum?.text.toString() == "" && exibeOperador?.text.toString() == "" || exibeNum?.text.toString().length<10 && exibeOperador?.text.toString() == ""){
                 exibeNum?.append(valorBotao).toString()
             }else{
@@ -157,6 +154,7 @@ class MainActivity : AppCompatActivity() {
                 exibeNum2?.append(valorBotao).toString()
             }
         }
+        //TECLA EQUAL - RESULTADO
         igualBotao?.setOnClickListener(){
             if (checkVazio() && exibeOperador?.text.toString() == "+" ){
                     val input1 = exibeNum?.text.toString().trim().toBigDecimal()
