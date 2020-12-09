@@ -27,17 +27,17 @@ class MainActivity : AppCompatActivity() {
     private var multBtn: Button? = null
     private var divBtn: Button? = null
     //BUTTON TECLADO
-    private var botao_dot: Button? = null
-    private var botao_0: Button? = null
-    private var botao_1: Button? = null
-    private var botao_2: Button? = null
-    private var botao_3: Button? = null
-    private var botao_4: Button? = null
-    private var botao_5: Button? = null
-    private var botao_6: Button? = null
-    private var botao_7: Button? = null
-    private var botao_8: Button? = null
-    private var botao_9: Button? = null
+    private var btnDot: Button? = null
+    private var btn0: Button? = null
+    private var btn1: Button? = null
+    private var btn2: Button? = null
+    private var btn3: Button? = null
+    private var btn4: Button? = null
+    private var btn5: Button? = null
+    private var btn6: Button? = null
+    private var btn7: Button? = null
+    private var btn8: Button? = null
+    private var btn9: Button? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -54,19 +54,19 @@ class MainActivity : AppCompatActivity() {
         multBtn = findViewById(botaoMultipli) as Button
         divBtn = findViewById(botaoDivisao) as Button
         //VALOR TECLAS 0-9 - DOT
-        botao_dot = findViewById(botaoPonto)
-        botao_0 = findViewById(botao0)
-        botao_1 = findViewById(botao1)
-        botao_2 = findViewById(botao2)
-        botao_3 = findViewById(botao3)
-        botao_4 = findViewById(botao4)
-        botao_5 = findViewById(botao5)
-        botao_6 = findViewById(botao6)
-        botao_7 = findViewById(botao7)
-        botao_8 = findViewById(botao8)
-        botao_9 = findViewById(botao9)
+        btnDot = findViewById(botaoPonto)
+        btn0 = findViewById(botao0)
+        btn1 = findViewById(botao1)
+        btn2 = findViewById(botao2)
+        btn3 = findViewById(botao3)
+        btn4 = findViewById(botao4)
+        btn5 = findViewById(botao5)
+        btn6 = findViewById(botao6)
+        btn7 = findViewById(botao7)
+        btn8 = findViewById(botao8)
+        btn9 = findViewById(botao9)
         //TECLAS 0-9 LISTENERS - DOT
-        botao_dot?.setOnClickListener(){
+        btnDot?.setOnClickListener(){
         val valorBotao = "."
             if (exibeNum?.text.toString().length >=0 && exibeOperador?.text.toString() == "") {
                 exibeNum?.append(valorBotao).toString()
@@ -74,7 +74,7 @@ class MainActivity : AppCompatActivity() {
                 exibeNum2?.append(valorBotao).toString()
             }
         }
-        botao_0?.setOnClickListener() {
+        btn0?.setOnClickListener() {
             val valorBotao = 0.toString()
             if (exibeNum?.text.toString() == "" && exibeOperador?.text.toString() == "" || exibeNum?.text.toString().length<10 && exibeOperador?.text.toString() == "") {
                 exibeNum?.append(valorBotao).toString()
@@ -82,7 +82,7 @@ class MainActivity : AppCompatActivity() {
                 exibeNum2?.append(valorBotao).toString()
                 }
             }
-        botao_1?.setOnClickListener() {
+        btn1?.setOnClickListener() {
             val valorBotao = 1.toString()
             if (exibeNum?.text.toString() == "" && exibeOperador?.text.toString() == "" || exibeNum?.text.toString().length<10 && exibeOperador?.text.toString() == "") {
                 exibeNum?.append(valorBotao).toString()
@@ -90,7 +90,7 @@ class MainActivity : AppCompatActivity() {
                 exibeNum2?.append(valorBotao).toString()
             }
         }
-        botao_2?.setOnClickListener() {
+        btn2?.setOnClickListener() {
             val valorBotao = 2.toString()
             if (exibeNum?.text.toString() == "" && exibeOperador?.text.toString() == "" || exibeNum?.text.toString().length<10 && exibeOperador?.text.toString() == "") {
                 exibeNum?.append(valorBotao).toString()
@@ -98,7 +98,7 @@ class MainActivity : AppCompatActivity() {
                 exibeNum2?.append(valorBotao).toString()
             }
         }
-        botao_3?.setOnClickListener() {
+        btn3?.setOnClickListener() {
             val valorBotao = 3.toString()
             if (exibeNum?.text.toString() == "" && exibeOperador?.text.toString() == "" || exibeNum?.text.toString().length<10 && exibeOperador?.text.toString() == ""){
                 exibeNum?.append(valorBotao).toString()
@@ -106,7 +106,7 @@ class MainActivity : AppCompatActivity() {
                 exibeNum2?.append(valorBotao).toString()
             }
         }
-        botao_4?.setOnClickListener() {
+        btn4?.setOnClickListener() {
             val valorBotao = 4.toString()
             if (exibeNum?.text.toString() == "" && exibeOperador?.text.toString() == "" || exibeNum?.text.toString().length<10 && exibeOperador?.text.toString() == "") {
                 exibeNum?.append(valorBotao).toString()
@@ -114,7 +114,7 @@ class MainActivity : AppCompatActivity() {
                 exibeNum2?.append(valorBotao).toString()
             }
         }
-        botao_5?.setOnClickListener() {
+        btn5?.setOnClickListener() {
             val valorBotao = 5.toString()
             if (exibeNum?.text.toString() == "" && exibeOperador?.text.toString() == "" || exibeNum?.text.toString().length<10 && exibeOperador?.text.toString() == "") {
                 exibeNum?.append(valorBotao).toString()
@@ -122,7 +122,7 @@ class MainActivity : AppCompatActivity() {
                 exibeNum2?.append(valorBotao).toString()
             }
         }
-        botao_6?.setOnClickListener() {
+        btn6?.setOnClickListener() {
             val valorBotao = 6.toString()
             if (exibeNum?.text.toString() == "" && exibeOperador?.text.toString() == "" || exibeNum?.text.toString().length<10 && exibeOperador?.text.toString() == "") {
                 exibeNum?.append(valorBotao).toString()
@@ -130,7 +130,7 @@ class MainActivity : AppCompatActivity() {
                 exibeNum2?.append(valorBotao).toString()
             }
         }
-        botao_7?.setOnClickListener() {
+        btn7?.setOnClickListener() {
             val valorBotao = 7.toString()
             if (exibeNum?.text.toString() == "" && exibeOperador?.text.toString() == "" || exibeNum?.text.toString().length<10 && exibeOperador?.text.toString() == "") {
                 exibeNum?.append(valorBotao).toString()
@@ -138,7 +138,7 @@ class MainActivity : AppCompatActivity() {
                 exibeNum2?.append(valorBotao).toString()
             }
         }
-        botao_8?.setOnClickListener() {
+        btn8?.setOnClickListener() {
             val valorBotao = 8.toString()
             if (exibeNum?.text.toString() == "" && exibeOperador?.text.toString() == "" || exibeNum?.text.toString().length<10 && exibeOperador?.text.toString() == "") {
                 exibeNum?.append(valorBotao).toString()
@@ -146,7 +146,7 @@ class MainActivity : AppCompatActivity() {
                 exibeNum2?.append(valorBotao).toString()
             }
         }
-        botao_9?.setOnClickListener() {
+        btn9?.setOnClickListener() {
             val valorBotao = 9.toString()
             if (exibeNum?.text.toString() == "" && exibeOperador?.text.toString() == "" || exibeNum?.text.toString().length<10 && exibeOperador?.text.toString() == "") {
                 exibeNum?.append(valorBotao).toString()
