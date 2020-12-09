@@ -177,8 +177,9 @@ class MainActivity : AppCompatActivity() {
                     if (input2.compareTo(BigDecimal.ZERO) == 0) {
                         exibeNum2?.error = "Invalid input"
                     } else {
-                        exibeResultado?.text = input1.divide(input2, 2, RoundingMode.HALF_UP).toString()
-                  }
+                        exibeResultado?.text =
+                            input1.divide(input2, 2, RoundingMode.HALF_UP).toString()
+                    }
             }
         }
         //TECLA SOMA
@@ -226,7 +227,7 @@ class MainActivity : AppCompatActivity() {
             exibeOperador?.error = null
         }
     }
-    // INSERE SINAL DE ERROR
+    //INSERE SINAL DE ERROR
     fun checkVazio(): Boolean {
         var b = true
         if (exibeNum?.text.toString().trim().isEmpty()) {
