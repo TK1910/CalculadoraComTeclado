@@ -51,7 +51,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         //LISTA ULTIMOS RESULTADOS
-
         val listView  = findViewById<ListView>(R.id.ListViewResults)
 
         listView.adapter = MyCustomAdapter(this)
@@ -260,7 +259,6 @@ class MainActivity : AppCompatActivity() {
         }
         return b
     }
-
     //GERENCIA LISTVIEW RESULTADOS
     private class MyCustomAdapter(context: Context): BaseAdapter(){
         private val mContext: Context
@@ -283,10 +281,8 @@ class MainActivity : AppCompatActivity() {
         override fun getView(position: Int, convertView: View?, viewGroup: ViewGroup?): View {
             val layoutInflater =  LayoutInflater.from(mContext)
             val rowMain = layoutInflater.inflate(R.layout.row_main, viewGroup, false)
-
             val positionTextView = rowMain.findViewById<TextView>(position_textview)
             positionTextView.text = "$position"
-
             return rowMain
         }
     }
