@@ -1,14 +1,21 @@
 package com.clickapp.tecladocalculator
 
+import android.content.Context
+import android.inputmethodservice.KeyboardView
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextWatcher
 import android.renderscript.ScriptGroup
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.*
+import androidx.annotation.RequiresApi
 import androidx.core.text.trimmedLength
 import com.clickapp.tecladocalculator.R.id.*
 import java.math.BigDecimal
+import java.math.MathContext
 import java.math.RoundingMode
 import java.nio.file.WatchEvent
 
@@ -38,12 +45,21 @@ class MainActivity : AppCompatActivity() {
     private var btn7: Button? = null
     private var btn8: Button? = null
     private var btn9: Button? = null
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        //LISTA ULTIMOS RESULTADOS
+
+        val listView  = findViewById<ListView>(R.id.ListViewResults)
+
+        listView.adapter = MyCustomAdapter(this)
         //CAIXAS DE EXIBICAO
         exibeNum = findViewById(mostraNum) as EditText
+        exibeNum!!.showSoftInputOnFocus = false
         exibeNum2 = findViewById(mostraNum2) as EditText
+        exibeNum2!!.showSoftInputOnFocus = false
         exibeOperador = findViewById(mostraOperador) as TextView
         exibeResultado = findViewById(mostraResult) as TextView
         //TECLAS OPERACOES
@@ -216,7 +232,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
     //RETIRA SINAL DE ERROR
-    fun cleanCheckVazio() {
+    private fun cleanCheckVazio() {
         if (exibeNum.toString() != "".orEmpty()){
             exibeNum?.error = null
         }
@@ -228,7 +244,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
     //INSERE SINAL DE ERROR
-    fun checkVazio(): Boolean {
+    private fun checkVazio(): Boolean {
         var b = true
         if (exibeNum?.text.toString().trim().isEmpty()) {
             exibeNum?.error = ""
@@ -244,4 +260,35 @@ class MainActivity : AppCompatActivity() {
         }
         return b
     }
+
+    //GERENCIA LISTVIEW RESULTADOS
+    private class MyCustomAdapter(context: Context): BaseAdapter(){
+        private val mContext: Context
+        private val lastResults = arrayListOf<String>(
+              "1", "2", "3", "4", "5"
+        )
+
+        init{
+            mContext = context
+        }
+        override fun getCount(): Int {
+            return lastResults.size
+        }
+        override fun getItem(position: Int): Any {
+            return "Test String"
+        }
+        override fun getItemId(position: Int): Long {
+            return position.toLong()
+        }
+        override fun getView(position: Int, convertView: View?, viewGroup: ViewGroup?): View {
+            val layoutInflater =  LayoutInflater.from(mContext)
+            val rowMain = layoutInflater.inflate(R.layout.row_main, viewGroup, false)
+
+            val positionTextView = rowMain.findViewById<TextView>(position_textview)
+            positionTextView.text = "$position"
+
+            return rowMain
+        }
+    }
+
 }
