@@ -1,4 +1,4 @@
-Calculadora simples de dois campos desenvolvido sem bibliotecas em Kotlin.
+Calculadora simples de dois campos desenvolvido sem a biblioteca exp4j em Kotlin.
 
 ![image](https://user-images.githubusercontent.com/69170713/110396392-b9539880-804e-11eb-8a77-b010d6d3e2ae.png)
 
